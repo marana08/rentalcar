@@ -2,6 +2,7 @@
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
 
 import {
     Formik,
@@ -53,34 +54,31 @@ const validationSchema = Yup.object({
 });
 
 export default function RentalForm({ carId }: RentalFormProps) {
-    const handleSubmit = async (
-        values: RentalFormValues,
-        { resetForm }: FormikHelpers<RentalFormValues>
-    ) => {
-        const isoDate = values.date ? values.date.toISOString() : new Date().toISOString();
+const handleSubmit = async (
+    values: RentalFormValues,
+    { resetForm }: FormikHelpers<RentalFormValues>
+) => {
+const payload = {
+    name: values.name.trim(),
+    email: values.email.trim(),
+    comment: values.comment.trim(),
+};
 
-        const payload = {
-            name: values.name.trim(),
-            email: values.email.trim(),
-            comment: values.comment.trim() || 'No comment',
-            date: isoDate,
-            // some backends expect 'bookingDate' instead of 'date' — include both for compatibility
-            bookingDate: isoDate,
-        };
+    // ✅ ОТУТ ДОДАЙ ЛОГИ (перед запитом)
+    console.log('PAYLOAD:', payload);
+    console.log('CAR ID:', carId);
 
-        try {
-            // log payload to help debug 400 responses
-            // eslint-disable-next-line no-console
-            console.log('Booking payload:', payload, 'carId:', carId);
-            await createBookingRequest(carId, payload);
+    try {
+        await createBookingRequest(carId, payload);
 
-            toast.success('Car rented successfully!');
-            resetForm();
-        } catch (error) {
-            console.error(error);
-            toast.error('Something went wrong. Please try again.');
-        }
-    };
+        toast.success('Car rented successfully!');
+        resetForm();
+    } catch (error) {
+    if (axios.isAxiosError(error)) {
+        console.log("BACKEND RESPONSE:", error.response?.data);
+    }
+}
+};
 
     return (
         <Formik
