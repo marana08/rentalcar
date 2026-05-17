@@ -2,7 +2,7 @@ import { BookingRequestPayload, CarFilters } from '@/types/car';
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL:'https://car-rental-api.goit.study',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://car-rental-api.goit.study',
 });
 export const getCars = async (page: number, filters: CarFilters) => {
   const { data } = await api.get('/cars', {

@@ -13,8 +13,10 @@ const manrope = Manrope({
     display: 'swap',
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 export const metadata: Metadata = {
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL(siteUrl),
     title: 'RentalCar',
     description: 'Find your perfect rental car for any journey.',
     icons: {

@@ -26,7 +26,7 @@ export async function generateMetadata({
       openGraph: {
         title: `RentalCar | ${car.brand} ${car.model}`,
         description: car.description,
-        url: `https://localhost:3000/catalog/${carId}`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/catalog/${carId}`,
         siteName: 'RentalCar',
         images: [
           {
