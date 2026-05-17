@@ -1,0 +1,20 @@
+import Link from 'next/link';
+import styles from '../../page.module.css';
+
+export default function CarIdNotFound() {
+    return (
+        <main>
+            <section className={styles.hero}>
+                <div className={styles.content}>
+                    <h1 className={styles.title}>Car not found</h1>
+                    <p className={styles.text}>
+                        The car you are looking for does not exist.
+                    </p>
+                    <Link href="/" className={styles.button}>
+                        Back to Home
+                    </Link>
+                </div>
+            </section>
+        </main>
+    );
+}

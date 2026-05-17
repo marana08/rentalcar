@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .imageWrapper {
   position: relative;
   width: 276px;
@@ -12,6 +11,27 @@
   margin-bottom: 16px;
   overflow: hidden;
   border-radius: 14px;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+}
+
+.favoriteIcon {
+  width: 16px;
+  height: 15px;
 }
 
 .image {
@@ -34,6 +54,10 @@
   font-weight: 500;
 }
 
+.model {
+  color: var(--button);
+}
+
 .price {
   flex-shrink: 0;
   font-size: 16px;
@@ -42,9 +66,11 @@
 }
 
 .info {
-  min-height: 40px;
+  width: 276px;
+  height: 40px;
   margin-bottom: 28px;
-  color: var(--color-gray);
+  overflow: hidden;
+  color: var(--gray);
   font-size: 12px;
   line-height: 1.33;
 }
@@ -57,8 +83,12 @@
   width: 276px;
   height: 44px;
   border-radius: 12px;
-  background-color: var(--color-main);
-  color: var(--color-white);
+  background-color: var(--button);
+  color: var(--white);
   font-size: 16px;
   font-weight: 600;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
 }

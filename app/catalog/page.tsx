@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import CarCard from '@/components/CarCard/CarCard';
 import Filters from '@/components/Filters/Filters';
+import Loader from '@/components/Loader/Loader';
 import { useCars } from '@/hooks/useCars';
 import { CarFilters } from '@/types/car';
 import styles from './catalog.module.css';
@@ -20,7 +21,7 @@ export default function CatalogPage() {
             <div className="container">
                 <Filters onSubmit={setFilters} />
 
-                {isLoading && <p className={styles.loader}>Loading...</p>}
+                {isLoading && <Loader />}
 
                 {!isLoading && (
                     <>

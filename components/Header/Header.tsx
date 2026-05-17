@@ -6,8 +6,8 @@ export default function Header() {
         <header className={styles.header}>
             <div className={`container ${styles.inner}`}>
                 <Link href="/" className={styles.logo}>
-                    <svg className={styles.logoIcon} viewBox="0 0 102 16" aria-hidden="true">
-                        <use href="/sprite.svg#icon-RentalCar" />
+                    <svg width='12' height='12' className={styles.headerLogo}>
+                        <use href='/sprite.svg#icon-RentalCar'></use>
                     </svg>
                 </Link>
 

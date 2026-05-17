@@ -1,44 +1,236 @@
+/* =========================
+   FORM BASE
+========================= */
+
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  width: 640px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
 }
 
-.label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 14px;
+.title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--main);
+}
+
+.text {
+  margin-bottom: 24px;
+  font-weight: 500;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background-color: var(--inputs);
+  color: var(--main);
+  font-size: 16px;
   font-weight: 500;
 }
 
 .input {
   height: 48px;
-  padding: 0 16px;
-  border: 1px solid #dadde1;
-  border-radius: 12px;
-  font-size: 16px;
+  margin-bottom: 16px;
+  padding: 0 20px;
 }
 
-.button {
-  height: 48px;
-  border: none;
-  border-radius: 12px;
-  background: #3470ff;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
+.textarea {
+  height: 88px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  resize: none;
 }
 
-.button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--gray);
 }
 
-.success {
-  color: green;
+.input:focus,
+.textarea:focus {
+  box-shadow: 0 0 0 1px var(--button);
 }
 
 .error {
-  color: red;
+  margin-top: -8px;
+  margin-bottom: 16px;
+  color: var(--button);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.button {
+  display: block;
+  width: 156px;
+  height: 44px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--button);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
+}
+
+/* =========================
+   DATEPICKER WRAPPER
+========================= */
+
+.datePickerWrapper {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.datePickerWrapper :global(.react-datepicker-wrapper),
+.datePickerWrapper :global(.react-datepicker__input-container) {
+  width: 100%;
+}
+
+.datePickerWrapper input {
+  width: 100%;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--inputs);
+  color: var(--main);
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.datePickerWrapper input::placeholder {
+  color: var(--gray);
+}
+
+.datePickerWrapper input:focus {
+  box-shadow: 0 0 0 1px var(--button);
+}
+
+/* =========================
+   POPPER
+========================= */
+
+.popper {
+  z-index: 9999;
+}
+
+/* =========================
+   CALENDAR ROOT
+========================= */
+
+/* IMPORTANT: this is the key fix */
+:global(.react-datepicker).calendar {
+  width: 250px;
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  font-family: var(--font-main);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  background: var(--white);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+:global(.react-datepicker).calendar :global(.react-datepicker__header) {
+  padding: 12px 16px 8px;
+  background-color: var(--badges);
+  border-bottom: 1px solid var(--gray-light);
+  width: 250px;
+}
+
+/* MONTH TITLE */
+:global(.react-datepicker).calendar :global(.react-datepicker__current-month) {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--main);
+}
+
+/* =========================
+   GRID
+========================= */
+
+:global(.react-datepicker).calendar :global(.react-datepicker__day-names),
+:global(.react-datepicker).calendar :global(.react-datepicker__week) {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* =========================
+   DAYS
+========================= */
+
+:global(.react-datepicker).calendar :global(.react-datepicker__day-name),
+:global(.react-datepicker).calendar :global(.react-datepicker__day) {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--main);
+}
+
+/* OUTSIDE MONTH */
+:global(.react-datepicker).calendar :global(.react-datepicker__day--outside-month) {
+  color: var(--gray);
+}
+
+/* SELECTED */
+:global(.react-datepicker).calendar :global(.react-datepicker__day--selected),
+:global(.react-datepicker).calendar :global(.react-datepicker__day--keyboard-selected) {
+  background-color: var(--button);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+:global(.react-datepicker).calendar :global(.react-datepicker__navigation) {
+  top: 10px;
+}
+
+:global(.react-datepicker).calendar :global(.react-datepicker__navigation--previous) {
+  left: 12px;
+}
+
+:global(.react-datepicker).calendar :global(.react-datepicker__navigation--next) {
+  right: 12px;
+}
+
+/* ICON */
+:global(.react-datepicker).calendar :global(.react-datepicker__navigation-icon::before) {
+  border-color: var(--button);
+  border-width: 2px 2px 0 0;
+}
+
+/* =========================
+   TRIANGLE
+========================= */
+
+:global(.react-datepicker).calendar :global(.react-datepicker__triangle) {
+  fill: var(--badges);
+  stroke: var(--button);
 }
