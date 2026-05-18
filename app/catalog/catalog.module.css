@@ -34,11 +34,12 @@
   min-width: 180px;
   height: 44px;
   border-radius: 12px;
-  background-color: var(--button);
-  color: var(--color-white);
+  border: 1px solid var(--button);
+  color: var(--main);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  font-family: var(--font-family);
 }
 
 .loadMore:disabled {
