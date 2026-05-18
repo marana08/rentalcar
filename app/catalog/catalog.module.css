@@ -34,7 +34,7 @@
   min-width: 180px;
   height: 44px;
   border-radius: 12px;
-  background-color: var(--color-main);
+  background-color: var(--button);
   color: var(--color-white);
   font-size: 16px;
   font-weight: 600;
