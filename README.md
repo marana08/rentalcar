@@ -1,40 +1,261 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🚗 RentalCar
 
-## Getting Started
+RentalCar is a modern web application for browsing and renting cars online.  
+The project was built with **Next.js App Router**, **TypeScript**, **TanStack Query**, and **CSS Modules**.
 
-First, run the development server:
+The application allows users to browse available rental cars, apply advanced filters, view detailed information about each car, and submit booking requests through a convenient online form.
+
+---
+
+# ✨ Features
+
+## 🚘 Car Catalog
+Browse available rental cars with responsive card layouts and detailed previews.
+
+## 🔍 Advanced Filtering
+Users can filter cars by:
+
+- brand
+- rental price
+- mileage range
+
+## 📄 Dynamic Car Details Page
+Each car has its own detailed page with:
+
+- specifications
+- rental conditions
+- location
+- description
+- booking section
+
+## 📩 Booking Request Form
+Users can submit rental requests directly from the car details page.
+
+## ✅ Form Validation
+Implemented validation for all booking form fields.
+
+## 🔗 URL-based Filters
+Filters are synchronized with URL search parameters, allowing users to:
+
+- share filtered results
+- preserve filter state
+- improve navigation experience
+
+## 🔄 Pagination with Load More
+Cars are loaded dynamically with pagination support.
+
+## 🔔 Toast Notifications
+Success and error notifications using React Hot Toast.
+
+## ⏳ Loading & Error States
+Implemented loaders, empty states, and error handling for asynchronous operations.
+
+## ⚡ SEO Optimization
+Dynamic metadata generation with:
+
+- title
+- description
+- Open Graph metadata
+- dynamic URLs
+
+## 🧭 Active Navigation
+Navigation links automatically highlight the active route.
+
+---
+
+# 🛠️ Technologies & Tools
+
+## ⚛️ Frontend
+- React
+- Next.js
+- TypeScript
+
+## ⚡ Data Fetching
+- TanStack Query
+- Axios
+
+## 📋 Forms & Validation
+- Formik
+- Yup
+
+## 🎨 UI & Styling
+- CSS Modules
+- clsx
+- React Select
+- React DatePicker
+- React Hot Toast
+- modern-normalize
+
+## 🌐 Next.js Features
+- App Router
+- Dynamic Routes
+- Server & Client Components
+- Metadata API
+- next/image
+- next/navigation
+
+---
+
+# 🌐 Backend API
+
+The project uses the RentalCar API:
+
+https://car-rental-api.goit.study
+
+## Used Endpoints
+
+- `GET /cars`
+- `GET /cars/{id}`
+- `GET /cars/filters`
+- `POST /cars/{carId}/booking-requests`
+
+---
+
+# 🧱 Project Structure
+
+```bash
+RentalCar/
+├─ app/
+│  ├─ catalog/
+│  │  ├─ [carId]/
+│  │  │  └─ page.tsx
+│  │  ├─ CatalogClient.tsx
+│  │  └─ page.tsx
+│  ├─ layout.tsx
+│  ├─ page.tsx
+│  └─ globals.css
+│
+├─ components/
+│  ├─ CarCard/
+│  ├─ Filters/
+│  ├─ Header/
+│  ├─ Hero/
+│  ├─ Loader/
+│  └─ RentalForm/
+│
+├─ hooks/
+├─ lib/
+├─ providers/
+├─ types/
+└─ utils/
+```
+
+---
+
+# 🔍 SEO Optimization
+
+The project implements dynamic metadata generation using:
+
+- `generateMetadata()`
+
+Includes:
+
+- 📌 title
+- 📌 description
+- 📌 Open Graph metadata
+- 📌 dynamic URLs
+
+This improves:
+
+- SEO optimization
+- social media previews
+- page indexing
+
+---
+
+# ⚡ Performance Optimization
+
+The application uses:
+
+- 🖼️ `next/image`
+- ⚡ Server Components
+- 📦 Code Splitting
+- 🚀 Optimized Routing
+- 🔍 Metadata API
+
+---
+
+# 🚀 Deployment
+
+The project is deployed on Vercel.
+
+## 🌐 Live Demo
+
+https://rentalcar-blue.vercel.app/
+
+## 💻 GitHub Repository
+
+https://github.com/marana08/rentalcar
+
+---
+
+# ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/marana08/rentalcar.git
+```
+
+Go to the project folder:
+
+```bash
+cd rentalcar
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# 📜 Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Run development server |
+| `npm run build` | Build project for production |
+| `npm run start` | Start production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+# 🔐 Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Create a `.env` file in the root directory and add:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_API_URL=https://car-rental-api.goit.study
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 👩‍💻 Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+**Mariana**
+
+💼 Frontend Developer  
+🌐 React / Next.js Developer
+
+GitHub:  
+https://github.com/marana08
+
+---
+
+# 📄 License
+
+This project was created for educational and portfolio purposes ✨
